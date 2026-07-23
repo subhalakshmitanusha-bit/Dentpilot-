@@ -1,21 +1,18 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    return jsonify({
-        "app": "DentPilot",
-        "status": "running",
-        "message": "DentPilot backend is working."
-    })
+    return render_template("index.html")
 
 
 @app.route("/health")
 def health():
     return jsonify({
-        "status": "healthy"
+        "status": "healthy",
+        "app": "DentPilot"
     })
 
 
